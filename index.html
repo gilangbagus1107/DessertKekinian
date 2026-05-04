@@ -8,13 +8,15 @@
   </head>
   <body>
     <section class="hero">
-      <h1>Dessert Manis, Mood Auto Naik 🍰</h1>
-      <p>Fresh setiap hari, bisa pre-order</p>
-      <a
-        href="https://wa.me/628XXXXXXXXXX?text=Saya%20ingin%20order%20dessert"
-        class="btn"
-        >Order via WhatsApp</a
-      >
+      <div class="hero-content">
+        <h1>Dessert Manis, Mood Auto Naik 🍰</h1>
+        <p>Fresh setiap hari, bisa pre-order</p>
+        <a
+          href="https://wa.me/628XXXXXXXXXX?text=Saya%20ingin%20order%20dessert"
+          class="btn"
+          >Order via WhatsApp</a
+        >
+      </div>
     </section>
 
     <section class="trust-bar">
@@ -24,7 +26,7 @@
     <section class="menu">
       <h2>Menu Favorit</h2>
       <div class="menu-grid">
-        <div class="card">
+        <div class="card reveal reveal-card delay-1">
           <div class="card-inner">
             <img src="images/menu1.jpg" />
             <div class="card-desc">
@@ -36,7 +38,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card reveal reveal-card delay-2">
           <div class="card-inner">
             <img src="images/menu2.jpg" />
             <div class="card-desc">
@@ -47,7 +49,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card reveal reveal-card delay-3">
           <div class="card-inner">
             <img src="images/menu3.jpg" />
             <div class="card-desc">
@@ -61,21 +63,21 @@
     </section>
 
     <section class="why-us">
-      <div class="why-point">
+      <div class="why-point reveal reveal-basic">
         <span>🎂</span>
         <p>Segar, dibuat setiap hari</p>
       </div>
-      <div class="why-point">
+      <div class="why-point reveal reveal-basic">
         <span>🍓</span>
         <p>Bahan Premium</p>
       </div>
-      <div class="why-point">
+      <div class="why-point reveal reveal-basic">
         <span>🚚</span>
         <p>Pengiriman Cepat</p>
       </div>
     </section>
 
-    <section class="cta">
+    <section class="cta reveal reveal-basic">
       <h2>Lagi ngidam manis? 🍰</h2>
       <p>Pesan hari ini, kirim besok.</p>
       <p>Stok terbatas setiap hari.</p>
@@ -90,5 +92,31 @@
     <footer class="credit">
       <p>&copy; 2026 Dessert Kekinian. Dibuat dengan ❤️ di VS Code.</p>
     </footer>
+
+    <script>
+      console.log("JS jalan");
+
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("active");
+              });
+
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "0px 0px -80px 0px",
+        },
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>
