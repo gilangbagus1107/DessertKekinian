@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dessert Kekinian</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section class="hero">
@@ -28,7 +32,7 @@
       <div class="menu-grid">
         <div class="card reveal reveal-card delay-1">
           <div class="card-inner">
-            <img src="images/menu1.jpg" />
+            <img src="images/menu1.jpg" alt="Choco Melt Cup" />
             <div class="card-desc">
               <h3>Choco Melt Cup</h3>
               <span class="badge">Terlaris</span>
@@ -40,7 +44,7 @@
 
         <div class="card reveal reveal-card delay-2">
           <div class="card-inner">
-            <img src="images/menu2.jpg" />
+            <img src="images/menu2.jpg" alt="Strawberry Milk" />
             <div class="card-desc">
               <h3>Strawberry Milk</h3>
               <p>Fresh + creamy + sedikit asam</p>
@@ -51,7 +55,7 @@
 
         <div class="card reveal reveal-card delay-3">
           <div class="card-inner">
-            <img src="images/menu3.jpg" />
+            <img src="images/menu3.jpg" alt="Matcha Soft Cream" />
             <div class="card-desc">
               <h3>Matcha Soft Cream</h3>
               <p>Matcha premium, lembut banget</p>
@@ -63,21 +67,21 @@
     </section>
 
     <section class="why-us">
-      <div class="why-point reveal reveal-basic">
+      <div class="why-point reveal-basic">
         <span>🎂</span>
         <p>Segar, dibuat setiap hari</p>
       </div>
-      <div class="why-point reveal reveal-basic">
+      <div class="why-point reveal-basic">
         <span>🍓</span>
         <p>Bahan Premium</p>
       </div>
-      <div class="why-point reveal reveal-basic">
+      <div class="why-point reveal-basic">
         <span>🚚</span>
         <p>Pengiriman Cepat</p>
       </div>
     </section>
 
-    <section class="cta reveal reveal-basic">
+    <section class="cta reveal-basic">
       <h2>Lagi ngidam manis? 🍰</h2>
       <p>Pesan hari ini, kirim besok.</p>
       <p>Stok terbatas setiap hari.</p>
@@ -96,7 +100,7 @@
     <script>
       console.log("JS jalan");
 
-      const reveals = document.querySelectorAll(".reveal");
+      const reveals = document.querySelectorAll(".reveal-card, .reveal-basic");
 
       const observer = new IntersectionObserver(
         (entries) => {

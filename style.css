@@ -1,11 +1,99 @@
 /* ===================== */
-/* BASE */
+/* ROOT / DESIGN TOKENS */
+/* ===================== */
+
+:root {
+  /* ===================== */
+  /* SPACE */
+  /* ===================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 120px;
+  --space-11: 150px;
+
+  /* ===================== */
+  /* BRAND COLORS */
+  /* ===================== */
+
+  --color-primary: #ff6b81;
+  --color-primary-dark: #e0556d;
+  --color-primary-soft: #ff8fa3;
+
+  /* ===================== */
+  /* BACKGROUND */
+  /* ===================== */
+
+  --color-white: #ffffff;
+  --color-bg: #fff0f5;
+  --color-bg-soft: #ffe4ec;
+  --color-surface: #ffffff;
+
+  /* ===================== */
+  /* TEXT */
+  /* ===================== */
+
+  --color-text: #333333;
+  --color-text-soft: #555555;
+  --color-text-muted: #666666;
+  --color-text-secondary: #444444;
+  --color-price: #d63384;
+
+  /* ===================== */
+  /* BUTTON / ACCENT */
+  /* ===================== */
+
+  --color-success: #25d366;
+  --color-success-dark: #128c7e;
+
+  /* ===================== */
+  /* BORDER */
+  /* ===================== */
+
+  --color-border-soft: rgba(0, 0, 0, 0.04);
+
+  /* ===================== */
+  /* OVERLAY */
+  /* ===================== */
+
+  --color-overlay-dark: rgba(0, 0, 0, 0.25);
+  --color-overlay-soft: rgba(255, 255, 255, 0.08);
+
+  /* ===================== */
+  /* SHADOW */
+  /* ===================== */
+
+  --shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  --shadow-medium: 0 10px 40px rgba(0, 0, 0, 0.15);
+
+  --shadow-button: 0 6px 20px rgba(37, 211, 102, 0.4);
+
+  /* ===================== */
+  /* RADIUS */
+  /* ===================== */
+
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+}
+
+/* ===================== */
+/* RESET / BASE */
 /* ===================== */
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
-  background: linear-gradient(to bottom, #fff0f5, #ffe4ec);
-  color: #333;
+  background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-soft));
+  color: var(--color-text);
 }
 
 /* ===================== */
@@ -26,19 +114,20 @@ p {
 /* ===================== */
 
 section {
-  padding: 60px 20px;
+  padding: var(--space-8) var(--space-5);
   margin: 0;
 }
 
 .hero {
+  position: relative;
   text-align: center;
-  padding: 120px 20px;
+  padding: var(--space-10) var(--space-5);
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
     url("images/hero.jpg");
   background-size: cover;
   background-position: center;
-  color: #ffffff;
+  color: var(--color-surface);
 
   animation: fadeHero 1s ease forwards;
 }
@@ -48,19 +137,21 @@ section {
   z-index: 2;
   max-width: 700px;
   margin: auto;
-  padding: 30px;
+  padding: var(--space-6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
 
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-overlay-soft);
   backdrop-filter: blur(10px);
 
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-medium);
 }
 
-hero::before {
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--color-overlay-dark);
 }
 
 .hero h1 {
@@ -72,7 +163,7 @@ hero::before {
 
 .hero p {
   font-size: 1.15rem;
-  margin-top: 12px;
+  margin-top: var(--space-3);
   opacity: 0.95;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
@@ -80,37 +171,37 @@ hero::before {
 .trust-bar {
   text-align: center;
   font-size: 14px;
-  padding: 14px;
-  background: #fff;
-  color: #444;
+  padding: var(--space-3);
+  background: var(--color-white);
+  color: var(--color-text-secondary);
   font-weight: 500;
 }
 
 .menu {
-  padding: 40px 20px;
+  padding: var(--space-7) var(--space-5);
   text-align: center;
-  background: #fff;
+  background: var(--color-white);
 }
 
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: var(--space-4);
 }
 
 .menu h2 {
   font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  margin-bottom: 30px;
+  margin-bottom: var(--space-6);
 }
 
 .why-us {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  padding: 120px 0;
-  background-color: #fff0f5;
+  gap: var(--space-7);
+  padding: var(--space-10) 0;
+  background-color: var(--color-bg);
   text-align: center;
 }
 
@@ -118,10 +209,13 @@ hero::before {
   text-align: center;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: 0.3s;
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .why-point:hover {
@@ -131,32 +225,36 @@ hero::before {
 .why-point span {
   font-size: 60px;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: var(--space-5);
 }
 
 .why-point p {
-  margin-top: 10px;
+  margin-top: var(--space-3);
   font-size: 1.1rem;
   font-weight: 500;
   max-width: 150px;
-  color: #444;
+  color: var(--color-text-secondary);
 }
 
 .cta {
   text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #ff6b81, #ff8fa3);
+  padding: var(--space-9) var(--space-5);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-soft)
+  );
   color: white;
   box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.15);
 }
 
 .cta h2 {
   font-size: 2.2rem;
-  margin-bottom: 10px;
+  margin-bottom: var(--space-3);
 }
 
 .cta p {
-  margin: 5px 0;
+  margin: var(--space-1) 0;
   line-height: 1.2;
 }
 
@@ -181,7 +279,7 @@ hero::before {
   background-color: #444;
   color: white;
   text-align: center;
-  padding: 20px 0;
+  padding: var(--space-5) 0;
   font-size: 0.9rem;
 }
 
@@ -191,37 +289,36 @@ hero::before {
 
 .btn {
   display: inline-block;
-  background: #25d366;
+  background: var(--color-success);
   color: white;
-  padding: 15px 40px;
+  padding: var(--space-3) var(--space-7);
   font-size: 1.2rem;
   font-weight: 600;
-  box-shadow:
-    0 6px 20px rgba(37, 211, 102, 0.4),
-    0 0 25px rgba(37, 211, 102, 0.2);
+  box-shadow: var(--shadow-button);
   text-decoration: none;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   letter-spacing: 0.4px;
-  transition: 0.3s;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .btn:hover {
-  transform: scale(1.05);
-  background: #128c7e;
+  transform: translateY(-2px) scale(1.05);
+  background: var(--color-success-dark);
 }
 
 .card {
   background: white;
-  padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
   overflow: hidden;
   backdrop-filter: blur(4px);
 
-  transition:
-    transform 0.6s ease,
-    box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
 }
 
 .card-inner {
@@ -229,7 +326,7 @@ hero::before {
 }
 
 .card:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-medium);
 }
 
 .card:hover .card-inner {
@@ -240,30 +337,39 @@ hero::before {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   object-position: center;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
 }
 
 .card-desc {
-  color: #555;
-  padding: 20px 16px 28px 16px;
+  color: var(--color-text-soft);
+  padding: var(--space-5) var(--space-3) var(--space-5) var(--space-3);
 }
 
 .badge {
   display: inline-block;
-  margin-top: 5px;
+  margin-top: var(--space-1);
   font-weight: 600;
-  background: #ff6b81;
+  background: var(--color-primary);
   color: white;
-  padding: 3px 8px;
-  border-radius: 5px;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-xs);
 }
 
 .price {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #d63384;
-  margin-top: 10px;
+  color: var(--color-price);
+  margin-top: var(--space-3);
 }
 
 /* ===================== */
@@ -326,24 +432,13 @@ hero::before {
   }
 }
 
-/* @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} */
-
 /* ===================== */
 /* RESPONSIVE */
 /* ===================== */
 
 @media (max-width: 768px) {
   .hero {
-    padding: 50px 15px;
+    padding: var(--space-7) var(--space-4);
   }
 
   .hero h1 {
@@ -355,12 +450,12 @@ hero::before {
   }
 
   .btn {
-    padding: 14px 24px;
+    padding: var(--space-3) var(--space-5);
     font-size: 1rem;
   }
 
   .menu {
-    padding: 30px 15px;
+    padding: var(--space-6) var(--space-4);
   }
 
   .menu-grid {
@@ -368,7 +463,7 @@ hero::before {
   }
 
   .card {
-    margin-bottom: 20px;
+    margin-bottom: var(--space-5);
   }
 
   .card img {
@@ -377,14 +472,14 @@ hero::before {
 
   .why-us {
     flex-direction: column;
-    gap: 30px;
-    padding: 40px 20px;
+    gap: var(--space-6);
+    padding: var(--space-6) var(--space-5);
   }
 
   .why-point {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: var(--space-4);
     justify-content: center;
   }
 
@@ -398,7 +493,7 @@ hero::before {
   }
 
   .cta {
-    padding: 60px 20px;
+    padding: var(--space-8) var(--space-5);
   }
 
   .cta h2 {
